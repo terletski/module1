@@ -7,11 +7,10 @@ let readFileAndPrintEvenLines = () => {
     let arr;
        fs.readFile('Text.txt', (err, data) => { //read file 
         if (err) {throw err}
-        arr = data.toString();
-        arr = arr.split('\n'); //split file into lines
-        
+        arr = data.toString().split('\n');//split file into lines
+                
         for (let i = 0; i<arr.length; i++) {      //print even lines
-            if ([i]%2==1){console.log(arr[i]);
+            if (i%2===1){console.log(arr[i]);
             }
         } 
     });
