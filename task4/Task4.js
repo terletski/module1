@@ -6,7 +6,7 @@ let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 let url = 'http://services.groupkt.com/country/get/all'
 
 // a new request
-function Get(url) {
+let Get = url => {
     let Httpreq = new XMLHttpRequest(); 
     Httpreq.open("GET", url, false);
     Httpreq.send(null);
@@ -18,7 +18,7 @@ let country = json_obj.RestResponse.result;
 // console.log(country);
 
 // find country
-function findByName(country, name) {         
+let findByName = (country, name) => {         
     for (var i = 0; i < country.length; i++) {
       if (country[i].name === name) {
         console.log(country[i]) 
