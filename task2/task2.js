@@ -1,9 +1,9 @@
 //requirements for use:
-console.log ('Valid file extensions: - json, encoded: UTF8.' + '\n');
+console.log ('Valid file extensions: - json, encoded: UTF8.');
+console.log ('Enter the file name you want to read as the function <checkConditions> argument.');
 
-let checkConditions = () => {
+let checkConditions = json_file => {
 
-    let json_file = '1400528_4.json'; 
     let fs = require('fs');
     let fileExists = require('file-exists');  
     let content = fs.readFileSync(json_file, 'utf8');         
@@ -47,7 +47,7 @@ let checkConditions = () => {
     console.log("Log.txt wasn't created");      
 }
    
-checkConditions();
+checkConditions('1400528_4.json');
   
 
 
