@@ -18,7 +18,7 @@ let checkConditions = json_file => {
     typeof data.element === 'object' ? console.log('OK') : 
     fs.appendFileSync('Log.txt', "patameter : " + data.element + '\n');
 
-    data.screenshot === 'null' ? console.log('OK') : 
+    typeof data.screenshot === 'null' ? console.log('OK') : 
     fs.appendFileSync('Log.txt', "screenshot : " + data.screenshot + '\n');
 
     typeof data.elementText === 'string' ? console.log('OK') : 
@@ -39,7 +39,7 @@ let checkConditions = json_file => {
     typeof data.parameters === 'object' ? console.log('OK') : 
     fs.appendFileSync('Log.txt', "parameter : " + data.parameters  + '\n');
      
-    typeof data.description === 'string' || data.description === 'qwertyuiopasdfghjkl' ? console.log('OK') : 
+    typeof data.description === 'string' && data.description === 'qwertyuiopasdfghjkl' ? console.log('OK') : 
     fs.appendFileSync('Log.txt', "description : " + data.description + '\n');  
 
     // check for Log.txt existence   
