@@ -1,5 +1,5 @@
 //requirements for use:
-console.log('Enter the country you want to find as the function <findByName> argument.')
+console.log('Enter the country you want to find as name variable.')
 
 const request = require('request-promise');
 
@@ -9,7 +9,7 @@ const options = {
 }
 
 request(options)
-  .then(function (response) {
+  .then (function (response) {
     let json_obj = JSON.parse(response);
     let country = json_obj.RestResponse.result;
 
@@ -17,10 +17,9 @@ request(options)
       for (let prop in country){
         if (country[prop].name === name) {
           console.log(country[prop]);
-          return country[prop];
-        }
+        } 
       }
-    })                     
-  .catch((err) => {
-    console.log(err)
-})
+    })                    
+  .catch(function(err) {
+    console.log(err);
+  });
