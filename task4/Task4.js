@@ -2,10 +2,13 @@
 console.log('Enter the country you want to find as name variable.')
 
 const request = require('request-promise');
+const uri = 'http://services.groupkt.com/country/get/all'
+
+let name = 'Belarus';
 
 const options = {
   method: 'GET',
-  uri: 'http://services.groupkt.com/country/get/all'
+  uri: uri
 }
 
 request(options)
@@ -23,3 +26,4 @@ request(options)
   .catch(function(err) {
     console.log(err);
   });
+  
