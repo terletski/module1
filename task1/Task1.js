@@ -1,9 +1,9 @@
+const fs = require('fs');
+const fileExists = require('file-exists');
+
 //requirements for use:
 console.log('Valid file extensions: txt, html, xml and encoded UTF-8.');
 console.log('Enter the file name you want to read as the function <readFileAndPrintEvenLines> argument.');
-
-const fs = require('fs');
-const fileExists = require('file-exists');
 
 readFileAndPrintEvenLines = file => {
     console.log('File processing... ')
