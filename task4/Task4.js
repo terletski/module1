@@ -16,14 +16,13 @@ request(options)
     let json_obj = JSON.parse(response);
     let country = json_obj.RestResponse.result;
 
-    let name = 'Belarus';
       for (let prop in country){
         if (country[prop].name === name) {
           console.log(country[prop]);
         } 
       }
     })                    
-  .catch(function(err) {
+  .catch(function(err) { 
     console.log(err);
   });
   
