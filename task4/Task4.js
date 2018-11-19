@@ -1,31 +1,26 @@
 //requirements for use:
 console.log('Enter the country you want to find as the function <findByName> argument.')
 
-let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const request = require('request-promise');
 
-let url = 'http://services.groupkt.com/country/get/all'
-
-// a new request
-let Get = url => {
-    let Httpreq = new XMLHttpRequest(); 
-    Httpreq.open("GET", url, false);
-    Httpreq.send(null);
-    return Httpreq.responseText;          
+const options = {
+  method: 'GET',
+  uri: 'http://services.groupkt.com/country/get/all'
 }
 
-let json_obj = JSON.parse(Get(url));
-let country = json_obj.RestResponse.result;
-// console.log(country);
+request(options)
+  .then(function (response) {
+    let json_obj = JSON.parse(response);
+    let country = json_obj.RestResponse.result;
 
-// find country
-let findByName = (country, name) => {         
-    for (var i = 0; i < country.length; i++) {
-      if (country[i].name === name) {
-        console.log(country[i]) 
-        return country[i];
+    let name = 'Belarus';
+      for (let prop in country){
+        if (country[prop].name === name) {
+          console.log(country[prop]);
+          return country[prop];
+        }
       }
-    }
-console.log("Country " + name + " couldn't find");     
-} 
-
-findByName(country, 'Belarus');
+    })                     
+  .catch((err) => {
+    console.log(err)
+})
