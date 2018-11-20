@@ -1,5 +1,4 @@
 const fs = require('fs');
-const fileExists = require('file-exists');
 
 //requirements for use:
 console.log('Valid file extensions: - json, encoded: UTF8.');
@@ -12,9 +11,8 @@ checkConditions = json_file => {
     console.log('File processing... ')
     //check for file existence
     let promise = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            fileExists.sync(json_file) ? resolve(json_file) : reject(json_file + ' not found');
-        }, 1000);
+        
+        fs.existsSync(json_file) ? resolve(json_file) : reject(new Error(json_file + ' not found'));
     });
     return promise;
 }
@@ -22,8 +20,9 @@ checkConditions = json_file => {
 readJsonFileAndWriteLog = json_file => {
     let content = fs.readFileSync(json_file, 'utf8');
     let data = JSON.parse(content);
+    
 
-    if (typeof data.flag !== 'boolean') writeLogFile('flag', data.flag);
+    if (typeof data.flag === 'boolean') writeLogFile('flag', data.flag);
 
     if (typeof data.myPromises !== 'object') writeLogFile('myPromises', data.myPromises);
 

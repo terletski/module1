@@ -4,13 +4,16 @@
   "description": "",
   "main": "Task1.js",
   "dependencies": {
-    "file-exists": "^5.0.1",
-    "file-system": "^2.2.2",
-    "request-promise": "^4.2.2"
+    "file-system": "^2.2.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-google": "^0.11.0",
+    "eslint-plugin-react": "^7.11.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint src/script.js || true"
   },
   "author": "Yauheni Tsiarletski",
   "license": "ISC"
